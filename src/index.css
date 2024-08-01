@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+/* Pagination color */
+.swiper-pagination-bullet {
+  background-color: #009688; /* Change to your desired color */
+}
+
+/* Navigation color */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 30px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+  color: #ffffff; /* Change to your desired color */
+  /* Add any other styles as needed */
+}
+
+
+/* Customizes the scrollbar track */
+body::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar */
+}
+
+/* Customizes the scrollbar handle */
+body::-webkit-scrollbar-thumb {
+  background-color: #009688; /* Handle color */
+  border-radius: 6px; /* Handle border radius */
+}
+
+/* Customizes the scrollbar track */
+body::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track color */
+  border-radius: 6px; /* Track border radius */
+}
+
+
+
+
