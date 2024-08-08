@@ -82,7 +82,7 @@ function App() {
           <FAQ />
         </div>
         <Services />
-        <EventCard />
+        {/* <EventCard /> */}
         <Testimonials />
         <div id="contact" ref={contactRef}>
           <ContactUs />
