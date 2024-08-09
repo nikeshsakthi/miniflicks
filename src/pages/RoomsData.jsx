@@ -75,7 +75,7 @@ import {
   
           <div className="flex items-center justify-between">
             <span className="text-3xl font-bold text-primaryText">{price}</span>
-            <button className="text-white bg-primary  hover:bg-secondaryText focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            <button className="text-white bg-primary  hover:bg-mainHover focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center">
               {buttonText}
             </button>
             

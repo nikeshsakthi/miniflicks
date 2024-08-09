@@ -1,12 +1,12 @@
 import React from 'react';
-import  AnniversaryImage from '../assets/occassion/celebration.svg';
-import BabyShowerImage from '../assets/occassion/celebration.svg';
-import BirthdayImage from '../assets/occassion/celebration.svg';
-import BrideToBeImage from '../assets/occassion/celebration.svg';
+import  AnniversaryImage from '../assets/occassion/wedding_anniversary.svg';
+import BabyShowerImage from '../assets/occassion/baby_shower.svg';
+import BirthdayImage from '../assets/occassion/birthday.svg';
+import BrideToBeImage from '../assets/occassion/bride_to_be.svg';
 import CongratulationsImage from '../assets/occassion/celebration.svg';
-import FarewellImage from '../assets/occassion/celebration.svg';
-import MarriageProposalImage from '../assets/occassion/celebration.svg';
-import RomanticDateImage from '../assets/occassion/celebration.svg';
+import FarewellImage from '../assets/occassion/farewell.svg';
+import MarriageProposalImage from '../assets/occassion/marriage_proposal.svg';
+import RomanticDateImage from '../assets/occassion/romantic_date.svg';
 
 const EventCard = () => {
   const events = [
