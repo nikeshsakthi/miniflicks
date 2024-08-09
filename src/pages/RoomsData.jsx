@@ -100,11 +100,11 @@ import {
             capacity="2 People Only"
             buttonText="Book Now"
             images={[
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
             ]}
           />
   
@@ -115,11 +115,11 @@ import {
             capacity="4 - 6 People"
             buttonText="Book Now"
             images={[
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
             ]}
           />
   
@@ -130,11 +130,11 @@ import {
             capacity="8 - 12 People"
             buttonText="Book Now"
             images={[
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
-              "./images/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
+              "../assets/image.png",
             ]}
           />
         </div>
