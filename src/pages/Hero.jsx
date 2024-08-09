@@ -51,17 +51,17 @@ const Hero = ({ handleScrollToSection }) => {
 
   const images = [
     {
-      url: "../../public/images/slide_one.jpeg",
+      url: "./images/slide_one.jpeg",
       heading: "Room 1",
       description: "A cozy and comfortable room with a beautiful view.",
     },
     {
-      url: "../../public/images/slide_two.jpeg",
+      url: "./images/slide_two.jpeg",
       heading: "Room 2",
       description: "Experience luxury and elegance in this spacious room.",
     },
     {
-      url: "../../public/images/slide_three.jpeg",
+      url: "./images/slide_three.jpeg",
       heading: "Room 3",
       description: "A modern room with all the amenities you need.",
     },
