@@ -5,13 +5,14 @@ import Header from "./Header";
 import BackToTop from "./components/BackToTop";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
+import EventCard from "./pages/EventCard";
 import FAQ from "./pages/FAQ";
 import Footer from "./pages/Footer";
 import Hero from "./pages/Hero";
+import RoomsData from "./pages/RoomsData";
 import Services from "./pages/Services";
 import SubscriptionPlans from "./pages/SubscriptionPlan";
 import Testimonials from "./pages/Testimonials";
-import EventCard from "./pages/EventCard";
 
 function App() {
   const [active, setActive] = useState("Home"); // State to keep track of active section
@@ -72,6 +73,9 @@ function App() {
         <div id="home" ref={homeRef}>
           <Hero handleScrollToSection={handleScrollToSection} />
         </div>
+
+        <RoomsData />
+
         <div id="about" ref={aboutRef}>
           <AboutUs />
         </div>
@@ -82,7 +86,7 @@ function App() {
           <FAQ />
         </div>
         <Services />
-        {/* <EventCard /> */}
+        <EventCard />
         <Testimonials />
         <div id="contact" ref={contactRef}>
           <ContactUs />

@@ -21,40 +21,40 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "How does the subscription work?",
+      question: "What is Miniflicks?",
       answer:
-        "You can choose from daily, weekly, or monthly plans. The fruits will be delivered to your address on the selected schedule.",
+        "Miniflicks is a streaming service that offers a curated selection of short films and web series across various genres.",
     },
     {
-      question: "Can I change my delivery address?",
+      question: "How can I subscribe to Miniflicks?",
       answer:
-        "Once subscribed, the delivery address cannot be changed in the middle of the plan.",
+        "You can subscribe to Miniflicks by signing up on our website and choosing a subscription plan that suits you. We offer monthly and yearly plans.",
     },
     {
-      question: "What if I want to freeze my subscription?",
+      question: "Can I cancel my subscription at any time?",
       answer:
-        "Monthly subscribers can freeze their subscription for up to 2 days. The price may differ for this option.",
+        "Yes, you can cancel your subscription at any time. Your access to Miniflicks will remain active until the end of the billing period.",
     },
     {
-      question: "Are there any delivery charges?",
+      question: "What devices are supported?",
       answer:
-        "Delivery charges are included in the subscription fee. There are no additional charges for delivery.",
+        "Miniflicks is available on web browsers, smartphones, tablets, and smart TVs. Check our website for a full list of supported devices.",
     },
     {
-      question: "Can I cancel my subscription?",
+      question: "Is there a free trial available?",
       answer:
-        "Yes, you can cancel your subscription at any time. However, the cancellation will be effective from the next billing cycle.",
+        "Yes, we offer a 7-day free trial for new users. You can explore our content and decide if Miniflicks is right for you.",
     },
     {
-      question: "What types of fruits are included in the subscription?",
+      question: "How do I contact customer support?",
       answer:
-        "We offer a variety of seasonal fruits. The specific types of fruits may vary depending on the availability and season.",
+        "You can reach our customer support team via email or live chat on our website. We're here to help with any issues you may have.",
     },
     {
-      question: "What if I have an issue with the delivery?",
+      question: "Can I download content for offline viewing?",
       answer:
-        "If you have any issues with the delivery, please contact our customer support team, and we will resolve the issue promptly.",
-    }
+        "Yes, Miniflicks allows you to download select content for offline viewing on your mobile devices.",
+    },
   ];
 
   const toggleAccordion = (index) => {
