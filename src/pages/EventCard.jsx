@@ -1,14 +1,14 @@
 import React from 'react';
 
 // Import the images you uploaded
-import  AnniversaryImage from '../../public/images/occassion/celebration.svg';
-import BabyShowerImage from '../../public/images/occassion/celebration.svg';
-import BirthdayImage from '../../public/images/occassion/celebration.svg';
-import BrideToBeImage from '../../public/images/occassion/celebration.svg';
-import CongratulationsImage from '../../public/images/occassion/celebration.svg';
-import FarewellImage from '../../public/images/occassion/celebration.svg';
-import MarriageProposalImage from '../../public/images/occassion/celebration.svg';
-import RomanticDateImage from '../../public/images/occassion/celebration.svg';
+import  AnniversaryImage from '/images/occassion/celebration.svg.';
+import BabyShowerImage from '/images/occassion/celebration.svg.';
+import BirthdayImage from '/images/occassion/celebration.svg.';
+import BrideToBeImage from '/images/occassion/celebration.svg.';
+import CongratulationsImage from '/images/occassion/celebration.svg.';
+import FarewellImage from '/images/occassion/celebration.svg.';
+import MarriageProposalImage from '/images/occassion/celebration.svg.';
+import RomanticDateImage from '/images/occassion/celebration.svg.';
 
 const EventCard = () => {
   const events = [
