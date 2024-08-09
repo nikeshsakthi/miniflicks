@@ -16,6 +16,10 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import "../index.css";
 
+import slideOne from "../assets/slide_one.jpeg";
+import slideTwo from "../assets/slide_two.jpeg";
+import slideThree from "../assets/slide_three.jpeg";
+
 const Hero = ({ handleScrollToSection }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -51,17 +55,17 @@ const Hero = ({ handleScrollToSection }) => {
 
   const images = [
     {
-      url: "./images/slide_one.jpeg",
+      url: slideOne,
       heading: "Room 1",
       description: "A cozy and comfortable room with a beautiful view.",
     },
     {
-      url: "./images/slide_two.jpeg",
+      url: slideTwo,
       heading: "Room 2",
       description: "Experience luxury and elegance in this spacious room.",
     },
     {
-      url: "./images/slide_three.jpeg",
+      url: slideThree,
       heading: "Room 3",
       description: "A modern room with all the amenities you need.",
     },
@@ -76,9 +80,9 @@ const Hero = ({ handleScrollToSection }) => {
       variants={parentVariants}
       ref={ref}
     >
-     <Swiper
-        modules={[Navigation,Autoplay, Pagination, Scrollbar, A11y]}
-        slidesPerView={1} 
+      <Swiper
+        modules={[Navigation, Autoplay, Pagination, Scrollbar, A11y]}
+        slidesPerView={1}
         effect="coverflow"
         loop={true}
         grabCursor={true}
@@ -98,14 +102,14 @@ const Hero = ({ handleScrollToSection }) => {
         }}
         className="rounded-t-lg"
         speed={2000} // Duration of transition between slides (2 seconds)
-        style={{width: '100vw', height: '100vh'}}
-    >
+        style={{ width: '100vw', height: '100vh' }}
+      >
         {images.map((image, index) => (
           <SwiperSlide key={index} className="relative flex items-center justify-center w-full h-full">
             <img
               src={image.url}
               alt={`Slide ${index}`}
-              className="absolute inset-0 w-full h-full object-fit"
+              className="absolute inset-0 object-cover w-full h-full"
             />
             <motion.div
               className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center text-white bg-black bg-opacity-20"

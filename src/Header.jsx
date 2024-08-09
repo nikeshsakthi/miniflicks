@@ -9,7 +9,7 @@ const Header = ({ active, handleScrollToSection }) => {
   const menuLinks = [
     { name: "Home", target: "home" },
     { name: "About", target: "about" },
-    { name: "Subscription", target: "subscription" },
+    { name: "Services", target: "services" },
     { name: "Faq", target: "faq" },
     { name: "Contact", target: "contact" },
   ];
@@ -55,11 +55,14 @@ const Header = ({ active, handleScrollToSection }) => {
             ))}
           </ul>
           {/* User icon and Book Now button for larger screens */}
-        <div className="hidden md:flex">
-          <button className="px-4 py-2 text-lg text-white rounded-lg bg-primary ">
-            Book Now
-          </button>
-        </div>
+          <div className="hidden md:flex">
+            <button
+              className="px-4 py-2 text-lg text-white rounded-lg bg-primary"
+              onClick={() => handleScrollToSection("roomsdata")}
+            >
+              Book Now
+            </button>
+          </div>
         </div>
         {/* Hamburger menu button for mobile screens */}
         <div className="flex items-center md:hidden">
@@ -119,7 +122,13 @@ const Header = ({ active, handleScrollToSection }) => {
               </li>
             ))}
             <li className="flex flex-col py-2 space-y-2">
-              <button className="px-4 py-2 text-white rounded bg-primary hover:bg-primary-dark">
+              <button
+                className="px-4 py-2 text-white rounded bg-primary hover:bg-primary-dark"
+                onClick={() => {
+                  handleScrollToSection("roomsdata");
+                  toggleMenu();
+                }}
+              >
                 Book Now
               </button>
             </li>

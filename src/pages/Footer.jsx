@@ -168,7 +168,7 @@ const Footer = () => {
           <div className="credits">
             Designed by{" "}
             <a href="#intro" className="text-primaryTextText ">
-              Phalaharam
+              PixelShots
             </a>
           </div>
         </div>

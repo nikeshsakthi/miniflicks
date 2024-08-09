@@ -1,7 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 const ContactUs = () => {
   const [name, setName] = useState("");
@@ -52,20 +52,27 @@ const ContactUs = () => {
         <div className="mt-8 space-y-4">
           <div className="flex items-center">
             <FaEnvelope className="mr-4 text-primary " />
-            <span>phalaharam@gmail.com</span>
+            <span>miniflicksprivatetheatres@gmail.com</span>
           </div>
           <div className="flex items-center">
-            <FaPhone className="mr-4 text-primary " />
-            <span>+91 807 359 7390</span>
+            <FaPhoneAlt className="mr-4 text-primary " />
+            <span>+91 901 916 2002</span>
           </div>
           <div className="flex items-center">
             <FaMapMarkerAlt className="mr-4 text-primary " />
             <span>
-              <p className="text-primaryText">
-                Marathahalli, <br />
-                Bangalore, 560037
+            <p className="text-primaryText">
+                THE SUMMIT,# 13, 1st 'A' Cross, <br />
+                Anantharama Reddy Layout,<br />
+                Outer Ring Road, Chinnappanahalli, <br />
+                Marathahalli, Bangalore, 560037
                 <br />
                 India <br />
+                <strong className="text-primary ">Phone:</strong> +91 9019162002, +91 8143115899
+                <br />
+                <strong className="text-primary ">Email:</strong>{" "}
+                miniflicksprivatetheatres@gmail.com
+                <br />
               </p>
             </span>
           </div>

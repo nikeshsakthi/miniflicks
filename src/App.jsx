@@ -11,7 +11,6 @@ import Footer from "./pages/Footer";
 import Hero from "./pages/Hero";
 import RoomsData from "./pages/RoomsData";
 import Services from "./pages/Services";
-import SubscriptionPlans from "./pages/SubscriptionPlan";
 import Testimonials from "./pages/Testimonials";
 
 function App() {
@@ -31,7 +30,7 @@ function App() {
   // Intersection observers for sections
   const [homeRef, inViewHome] = useInView({ threshold: 0.5 });
   const [aboutRef, inViewAbout] = useInView({ threshold: 0.5 });
-  const [subscriptionRef, inViewSubscription] = useInView({ threshold: 0.3 });
+  const [servicesRef, inViewServices] = useInView({ threshold: 0.3 });
   const [faqRef, inViewFaq] = useInView({ threshold: 0.5 });
   const [contactRef, inViewContact] = useInView({ threshold: 0.5 });
 
@@ -39,10 +38,10 @@ function App() {
   useEffect(() => {
     if (inViewHome) setActive("Home");
     else if (inViewAbout) setActive("About");
-    else if (inViewSubscription) setActive("Subscription");
+    else if (inViewServices) setActive("Services");
     else if (inViewFaq) setActive("Faq");
     else if (inViewContact) setActive("Contact");
-  }, [inViewHome, inViewAbout, inViewSubscription, inViewFaq, inViewContact]);
+  }, [inViewHome, inViewAbout, inViewServices, inViewFaq, inViewContact]);
 
   // Function to scroll to a section smoothly
   const handleScrollToSection = (target) => {
@@ -70,27 +69,38 @@ function App() {
       <Header active={active} handleScrollToSection={handleScrollToSection} />
       <main>
         {/* Sections with intersection observer refs */}
-        <div id="home" ref={homeRef}>
+        <section id="home" ref={homeRef}>
           <Hero handleScrollToSection={handleScrollToSection} />
-        </div>
+        </section>
 
-        <RoomsData />
+        <section id="roomsdata">
+          <RoomsData />
+        </section>
 
-        <div id="about" ref={aboutRef}>
+        <section id="about" ref={aboutRef}>
           <AboutUs />
-        </div>
-        <div id="subscription" ref={subscriptionRef}>
-          <SubscriptionPlans />
-        </div>
-        <div id="faq" ref={faqRef}>
+        </section>
+
+        <section id="services" ref={servicesRef}>
+          <Services />
+        </section>
+
+        <section id="faq" ref={faqRef}>
           <FAQ />
-        </div>
-        <Services />
-        <EventCard />
-        <Testimonials />
-        <div id="contact" ref={contactRef}>
+        </section>
+
+        <section id="events">
+          <EventCard />
+        </section>
+
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+
+        <section id="contact" ref={contactRef}>
           <ContactUs />
-        </div>
+        </section>
+
         <Footer />
         <BackToTop />
       </main>

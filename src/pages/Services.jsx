@@ -70,7 +70,7 @@ const Services = () => {
         variants={h2Variants}
         className="mb-8 text-3xl font-bold text-primary Text lg:text-5xl"
       >
-        Why <span className="text-primary">Phalaharam ?</span>
+        Why <span className="text-primary">Miniflicks ?</span>
       </motion.h2>
       <motion.div
         className="flex flex-col items-center justify-center gap-8 md:flex-row md:flex-wrap"
