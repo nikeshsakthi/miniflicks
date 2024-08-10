@@ -124,7 +124,7 @@ const RoomsData = () => {
               </div>
 
               <div className="flex justify-center">
-                <button className="px-6 py-3 font-medium transition duration-300 ease-in-out transform bg-transparent border-2 rounded-lg text-primary border-primary group-hover:bg-primary group-hover:text-white focus:ring-4 focus:outline-none focus:ring-primary text-md">
+                <button className="px-6 py-3 font-medium transition duration-300 ease-in-out transform bg-transparent border-2 rounded-lg text-primary border-primary group-hover:bg-primary group-hover:text-white focus:outline-none text-md">
                   {room.buttonText}
                 </button>
               </div>
