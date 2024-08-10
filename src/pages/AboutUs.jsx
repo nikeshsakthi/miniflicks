@@ -89,7 +89,7 @@ const AboutUs = () => {
           whileHover={{ scale: 1.1 }}
           className="px-6 py-3 text-white rounded-full shadow-lg bg-primary"
           onClick={() => {
-            const phoneNumber = "918073597390"; // Ensure the phone number is in international format without the "+" sign
+            const phoneNumber = "919019162002"; // Ensure the phone number is in international format without the "+" sign
             const message = "I want to know more about booking MiniFlicks Private Theater.";
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;

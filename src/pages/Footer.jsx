@@ -123,31 +123,31 @@ const Footer = () => {
 
               <div className="flex items-center mt-4 space-x-4">
                 <a
-                  href="https://www.instagram.com/phalaharam.official/"
+                  href="https://www.instagram.com/miniflicks_marathahalli/"
                   className="text-xl text-primaryTextText hover:text-primary "
                 >
                   <FaInstagram size={24}/>
                 </a>
                 <a
-                  href="tel:8073597390"
+                  href="https://www.facebook.com/people/Mini-FlicksRtUhowu41QymFYHPkFcyUibvByKkJEgMAGyempvesl/?mibextid=rS40aB7S9Ucbxw6v"
                   className="text-xl text-primaryTextText hover:text-primary "
                 >
                   <FaFacebook size={24}/>
                 </a>
                 <a
-                  href="whatsapp://send?text=Hello%20there!&phone=+91 807 359 7390"
+                  href="whatsapp://send?text=Hello%20there!&phone=+91 901 916 2002"
                   className="text-xl text-primaryTextText hover:text-primary "
                 >
                   <FaWhatsapp size={24}/>
                 </a>
                 <a
-                  href="tel:8073597390"
+                  href="tel:9019162002"
                   className="text-xl text-primaryTextText hover:text-primary "
                 >
                   <FaPhoneAlt size={20}/>
                 </a>
                 <a
-                  href="tel:8073597390"
+                  href="https://www.youtube.com/@miniflicks_marathahalli"
                   className="text-xl text-primaryTextText hover:text-primary "
                 >
                   <FaYoutube size={24}/>
@@ -162,7 +162,7 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-center space-y-4 md:space-y-0">
           <div className="copyright">
             &copy; Copyright{" "}
-            <strong className="text-primaryTextText ">Phalaharam</strong>. All
+            <strong className="text-primaryTextText ">PixelShots</strong>. All
             Rights Reserved
           </div>
           <div className="credits">
