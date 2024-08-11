@@ -60,7 +60,7 @@ const RoomsData = () => {
   ];
 
   return (
-    <div className="py-12 bg-lightBg">
+    <div id="theatres" className="py-12 bg-lightBg">
       <h2 className="mb-12 text-5xl font-bold text-center text-gray-900">
         Our Theatres
       </h2>

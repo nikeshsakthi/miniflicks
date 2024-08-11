@@ -67,12 +67,7 @@ const ContactUs = () => {
                 Outer Ring Road, Chinnappanahalli, <br />
                 Marathahalli, Bangalore, 560037
                 <br />
-                India <br />
-                <strong className="text-primary ">Phone:</strong> +91 9019162002, +91 8143115899
-                <br />
-                <strong className="text-primary ">Email:</strong>{" "}
-                miniflicksprivatetheatres@gmail.com
-                <br />
+                India                 
               </p>
             </span>
           </div>

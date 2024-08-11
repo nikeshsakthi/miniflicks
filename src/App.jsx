@@ -12,6 +12,7 @@ import Hero from "./pages/Hero";
 import RoomsData from "./pages/RoomsData";
 import Services from "./pages/Services";
 import Testimonials from "./pages/Testimonials";
+import TheatreDetails from "./pages/TheatreDetails";
 
 function App() {
   const [active, setActive] = useState("Home"); // State to keep track of active section
@@ -80,6 +81,8 @@ function App() {
         <section id="about" ref={aboutRef}>
           <AboutUs />
         </section>
+
+        <TheatreDetails />
 
         <section id="services" ref={servicesRef}>
           <Services />
