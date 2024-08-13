@@ -13,17 +13,11 @@ import RoomsData from "./pages/RoomsData";
 import Services from "./pages/Services";
 import Testimonials from "./pages/Testimonials";
 import TheatreDetails from "./pages/TheatreDetails";
-import { useData } from "./components/DataContext";
 
 function App() {
   const [active, setActive] = useState("Home"); // State to keep track of active section
   const [theme, setTheme] = useState("light"); // State to keep track of theme
 
-
-
-  const {bgColor,updateBgColor} = useData();
-
-  console.log(bgColor);
 
   // Toggle dark mode class on document element based on theme state
   useEffect(() => {

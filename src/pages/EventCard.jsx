@@ -115,7 +115,9 @@ const EventCard = () => {
             type="date"
             className="w-full p-2 mb-4 border rounded-lg"
             value={currentDate}
-            onChange={(e) => setCurrentDate(e.target.value)}
+            onChange={(e) => {
+              setCurrentDate(e.target.value);
+            console.log(e.target.value);}}
           />
           <div className="flex flex-col gap-2">
             {timeSlots.map((slot, index) => (
