@@ -95,7 +95,7 @@ const RoomsData = () => {
               speed={2000} // Duration of transition between slides (2 seconds)
             >
               {room.images.map((imageSrc, imgIndex) => (
-                <SwiperSlide key={imgIndex}>
+                <SwiperSlide key={imgIndex}  className="relative flex items-center justify-center w-full h-full">
                   <img
                     src={imageSrc}
                     alt={`${room.title} image ${imgIndex + 1}`}

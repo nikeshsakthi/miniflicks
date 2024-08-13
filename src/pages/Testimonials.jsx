@@ -147,7 +147,7 @@ const Testimonials = () => {
       ref={ref}
     >
       <motion.div
-        className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center"
+        className="relative flex flex-col items-center justify-center w-full h-full text-center"
         initial="hidden"
         animate="visible"
         variants={parentVariants}

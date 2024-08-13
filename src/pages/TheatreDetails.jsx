@@ -7,7 +7,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { format } from "date-fns";
+import { format, isBefore, parseISO } from "date-fns";
 import slideOne from "../assets/slide_one.jpeg";
 import slideTwo from "../assets/slide_two.jpeg";
 import slideThree from "../assets/slide_three.jpeg";
@@ -25,7 +25,7 @@ function TheatreDetails() {
     autoplaySpeed: 2000,
   };
 
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTimes, setSelectedTimes] = useState([]);
   const [currentDate, setCurrentDate] = useState(
     format(new Date(), "yyyy-MM-dd")
   );
@@ -75,25 +75,33 @@ function TheatreDetails() {
     );
   }, []);
 
-  const isPastTime = (startTime) => {
-    if (currentDate !== today) return false;
-
-    const [currentHours, currentMinutes] = currentTime.split(":");
+  const isPastTime = (slotDate, startTime) => {
     const [slotHours, slotMinutes] = startTime.split(":");
-    return (
-      parseInt(currentHours) > parseInt(slotHours) ||
-      (parseInt(currentHours) === parseInt(slotHours) &&
-        parseInt(currentMinutes) > parseInt(slotMinutes))
-    );
+    const slotDateTime = parseISO(`${slotDate}T${slotHours}:${slotMinutes}:00`);
+
+    return isBefore(slotDateTime, new Date());
   };
 
   const handleDateClick = (arg) => {
     setCurrentDate(arg.dateStr);
+    setSelectedTimes([]); // Reset selected times when the date is changed
+  };
+
+  const toggleTimeSlot = (slot) => {
+    setSelectedTimes((prevSelectedTimes) => {
+      if (prevSelectedTimes.includes(slot)) {
+        return prevSelectedTimes.filter(
+          (selectedSlot) => selectedSlot !== slot
+        );
+      } else {
+        return [...prevSelectedTimes, slot];
+      }
+    });
   };
 
   return (
-    <div className="flex justify-start p-12">
-      <div className="w-[20%]">
+    <div className="flex flex-col justify-start gap-8 p-4 lg:flex-row md:p-8 lg:p-12">
+      <div className="w-full lg:w-[30%]">
         <Slider {...sliderSettings}>
           {images.map((image, index) => (
             <div key={index}>
@@ -107,59 +115,59 @@ function TheatreDetails() {
         </Slider>
       </div>
       {/* Right Side: Calendar Appointment */}
-      <div className="flex flex-col items-center w-full">
-        <div className="w-full p-6 bg-white border border-gray-300 rounded-lg">
-          <h2 className="mb-4 text-xl font-bold text-center lg:text-left">
-            Select Date & Time
-          </h2>
-          <div className="flex gap-2">
-            <div className="mb-4  w-[50%]">
-              <FullCalendar
-                plugins={[dayGridPlugin, timeGridPlugin]}
-                initialView="dayGridMonth"
-                dateClick={handleDateClick}
-                selectable={true}
-                dayMaxEventRows={true}
-                events={[]} // Add any events if necessary
-                headerToolbar={{
-                  left: "prev,next",
-                  center: "title",
-                  right: "today",
-                }}
-                height="auto"
-                contentHeight={400}
-                aspectRatio={1.5}
-              />
-            </div>
-            <div className="flex flex-col gap-2  w-[50%]">
-              {timeSlots.map((slot, index) => (
-                <button
-                  key={index}
-                  className={`flex-1 flex items-center justify-center p-3 border rounded-lg transition-colors duration-300 ${
-                    isPastTime(slot.start) ? "line-through text-gray-400" : ""
-                  } ${
-                    selectedTime === slot.label
-                      ? "bg-primary text-white"
-                      : "bg-gray-100 hover:bg-gray-200"
-                  }`}
-                  disabled={isPastTime(slot.start)}
-                  onClick={() => setSelectedTime(slot.label)}
-                >
-                  <span className="mr-2">{slot.icon}</span>
-                  <span className="text-sm md:text-base">{slot.label}</span>
-                </button>
-              ))}
+      <div className="flex flex-col items-center w-full lg:w-[70%] p-4 md:p-6 bg-white border border-gray-300 rounded-lg">
+        <h2 className="mb-4 text-lg font-bold text-center md:text-xl lg:text-left">
+          Select Date & Time
+        </h2>
+        <div className="flex flex-col w-full gap-4 md:flex-row md:gap-12">
+          <div className="mb-4 w-full md:w-[400px] lg:w-[600px] h-[300px] md:h-[400px]">
+            <FullCalendar
+              plugins={[dayGridPlugin, timeGridPlugin]}
+              initialView="dayGridMonth"
+              dateClick={handleDateClick}
+              selectable={true}
+              dayMaxEventRows={true}
+              events={[]} // Add any events if necessary
+              headerToolbar={{
+                left: "prev,next",
+                center: "title",
+                right: "today",
+              }}
+              height="100%"
+              contentHeight={400}
+              aspectRatio={1}
+            />
+          </div>
+          <div className="flex flex-col gap-2 w-full md:w-[35%] lg:w-[23%]">
+            {timeSlots.map((slot, index) => (
               <button
-                className={`mt-6 w-full py-3 rounded-lg transition-colors duration-300 ${
-                  selectedTime
-                    ? "bg-primary text-white hover:bg-primary-dark"
-                    : "bg-gray-300 text-gray-700 cursor-not-allowed"
+                key={index}
+                className={`flex-1 flex items-center justify-center p-3 border rounded-lg transition-colors duration-300 ${
+                  isPastTime(currentDate, slot.start)
+                    ? "line-through text-gray-400"
+                    : ""
+                } ${
+                  selectedTimes.includes(slot.label)
+                    ? "bg-primary text-white border-primary"
+                    : "bg-gray-100 hover:border-primary hover:text-primary"
                 }`}
-                disabled={!selectedTime}
+                disabled={isPastTime(currentDate, slot.start)}
+                onClick={() => toggleTimeSlot(slot.label)}
               >
-                Proceed
+                <span className="mr-2">{slot.icon}</span>
+                <span className="text-sm md:text-base">{slot.label}</span>
               </button>
-            </div>
+            ))}
+            <button
+              className={`mt-6 w-full py-3 rounded-lg transition-colors duration-300 ${
+                selectedTimes.length > 0
+                  ? "bg-primary text-white hover:bg-primary-dark"
+                  : "bg-gray-300 text-gray-700 cursor-not-allowed"
+              }`}
+              disabled={selectedTimes.length === 0}
+            >
+              Proceed
+            </button>
           </div>
         </div>
       </div>
