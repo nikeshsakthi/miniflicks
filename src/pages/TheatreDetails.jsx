@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import Swal from "sweetalert2";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { format, isBefore, parseISO } from "date-fns";
@@ -99,6 +100,19 @@ function TheatreDetails() {
     });
   };
 
+  const handleProceedClick = () => {
+    Swal.fire({
+      title: "Selected Slot Timings",
+      html: `The following time slots have been selected:<br><strong>${selectedTimes.join(
+        "<br>"
+      )}</strong>`,
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+
+    setSelectedTimes([]);
+  };
+
   return (
     <div className="flex flex-col justify-start gap-8 p-4 lg:flex-row md:p-8 lg:p-12">
       <div className="w-full lg:w-[30%]">
@@ -165,6 +179,7 @@ function TheatreDetails() {
                   : "bg-gray-300 text-gray-700 cursor-not-allowed"
               }`}
               disabled={selectedTimes.length === 0}
+              onClick={handleProceedClick}
             >
               Proceed
             </button>
