@@ -1,18 +1,8 @@
+import React from "react";
 import { FaUserFriends, FaUsers } from "react-icons/fa";
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/effect-coverflow";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import {
-  A11y,
-  Autoplay,
-  Navigation,
-  Pagination,
-  Scrollbar,
-} from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // Importing images
 import slideOne from "../assets/slide_one.jpeg";
@@ -27,6 +17,17 @@ const RoomsData = () => {
   const coupleTheatreImages = [slideOne, slideTwo, slideThree];
   const friendsRoomImages = [slideFive, slideSix, slideFour];
   const familyTheatreImages = [slideThree, slideOne, slideFive];
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    
+  };
 
   // Array of room data
   const rooms = [
@@ -60,71 +61,54 @@ const RoomsData = () => {
   ];
 
   return (
-    <div id="theatres" className="py-12 bg-lightBg">
-      <h2 className="mb-12 text-5xl font-bold text-center text-gray-900">
+    <div id="roomsdata" className="py-12 bg-lightBg">
+      <h2 className="mb-12 text-4xl font-bold text-center text-gray-900 sm:text-5xl">
         Our Theatres
       </h2>
 
-      <div className="flex flex-wrap justify-center gap-10 px-5">
+      <div className="flex flex-wrap justify-center gap-6 px-4 md:gap-10 md:px-5">
         {rooms.map((room, index) => (
           <div
             key={index}
-            className="max-w-sm p-6 transition-transform duration-300 ease-in-out bg-white border-2 border-gray-300 rounded-lg hover:border-primary hover:cursor-pointer group"
+            className="max-w-full p-4 transition-transform duration-300 ease-in-out bg-white border-2 border-gray-300 rounded-lg hover:border-primary hover:cursor-pointer group sm:max-w-sm sm:p-6"
           >
-            {/* Swiper Carousel for images */}
-            <Swiper
-              modules={[Navigation, Autoplay, Pagination, Scrollbar, A11y]}
-              slidesPerView={1}
-              effect="coverflow"
-              loop={true}
-              grabCursor={true}
-              centeredSlides={true}
-              coverflowEffect={{
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-              }}
-              pagination={{ clickable: true }}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              className="rounded-lg"
-              speed={2000} // Duration of transition between slides (2 seconds)
-            >
+            {/* React Slick Carousel for images */}
+            <Slider {...sliderSettings} className="rounded-lg">
               {room.images.map((imageSrc, imgIndex) => (
-                <SwiperSlide key={imgIndex}  className="relative flex items-center justify-center w-full h-full">
+                <div key={imgIndex}>
                   <img
                     src={imageSrc}
                     alt={`${room.title} image ${imgIndex + 1}`}
                     className="object-cover w-full h-full rounded-lg"
                   />
-                </SwiperSlide>
+                </div>
               ))}
-            </Swiper>
+            </Slider>
 
-            <div className="mt-6">
-              <div className="flex items-center mb-4">
-                <h5 className="text-3xl font-semibold text-gray-800">
+            <div className="mt-4 sm:mt-6">
+              <div className="flex items-center mb-3 sm:mb-4">
+                <h5 className="text-2xl font-semibold text-gray-800 sm:text-3xl">
                   {room.title}
                 </h5>
               </div>
 
-              <div className="flex items-center mb-4">
-                <p className="text-lg text-gray-600">{room.description}</p>
+              <div className="flex items-center mb-3 sm:mb-4">
+                <p className="text-base text-gray-600 sm:text-lg">
+                  {room.description}
+                </p>
               </div>
 
-              <div className="flex items-center mb-6">
-                <div className="text-2xl text-primary">{room.icon}</div>
-                <span className="ml-2 text-lg font-medium text-gray-700">
+              <div className="flex items-center mb-4 sm:mb-6">
+                <div className="text-xl text-primary sm:text-2xl">
+                  {room.icon}
+                </div>
+                <span className="ml-2 text-base font-medium text-gray-700 sm:text-lg">
                   {room.capacity}
                 </span>
               </div>
 
               <div className="flex justify-center">
-                <button className="px-6 py-3 font-medium transition duration-300 ease-in-out transform bg-transparent border-2 rounded-lg text-primary border-primary group-hover:bg-primary group-hover:text-white focus:outline-none text-md">
+                <button className="px-5 py-2 font-medium transition duration-300 ease-in-out transform bg-transparent border-2 rounded-lg text-primary border-primary group-hover:bg-primary group-hover:text-white text-md sm:px-6 sm:py-3">
                   {room.buttonText}
                 </button>
               </div>

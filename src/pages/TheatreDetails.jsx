@@ -27,44 +27,105 @@ function TheatreDetails() {
   };
 
   const [selectedTimes, setSelectedTimes] = useState([]);
+  const [selectedTheatre, setSelectedTheatre] = useState("Couple Theatre");
   const [currentDate, setCurrentDate] = useState(
     format(new Date(), "yyyy-MM-dd")
   );
   const [currentTime, setCurrentTime] = useState("");
   const [today, setToday] = useState("");
 
-  const timeSlots = [
-    {
-      label: "09:30 AM - 12:30 PM",
-      icon: <FiSun />,
-      start: "09:30",
-      end: "12:30",
-    },
-    {
-      label: "01:00 PM - 04:00 PM",
-      icon: <FiSun />,
-      start: "13:00",
-      end: "16:00",
-    },
-    {
-      label: "04:30 PM - 06:00 PM",
-      icon: <FiSun />,
-      start: "16:30",
-      end: "18:00",
-    },
-    {
-      label: "06:30 PM - 09:30 PM",
-      icon: <HiOutlineMoon />,
-      start: "18:30",
-      end: "21:30",
-    },
-    {
-      label: "10:00 PM - 01:00 AM",
-      icon: <HiOutlineMoon />,
-      start: "22:00",
-      end: "01:00",
-    },
-  ];
+  const timeSlots = {
+    "Couple Theatre": [
+      {
+        label: "09:00 AM - 11:30 PM",
+        icon: <FiSun />,
+        start: "09:00",
+        end: "23:30",
+      },
+      {
+        label: "12:15 PM - 02:45 PM",
+        icon: <FiSun />,
+        start: "12:15",
+        end: "14:45",
+      },
+      {
+        label: "03:30 PM - 06:00 PM",
+        icon: <FiSun />,
+        start: "15:30",
+        end: "18:00",
+      },
+      {
+        label: "06:45 PM - 09:15 PM",
+        icon: <HiOutlineMoon />,
+        start: "18:45",
+        end: "21:15",
+      },
+      {
+        label: "10:00 PM - 12:30 AM",
+        icon: <HiOutlineMoon />,
+        start: "22:00",
+        end: "00:30",
+      },
+    ],
+    "Friends Theatre": [
+      {
+        label: "09:30 AM - 12:00 PM",
+        icon: <FiSun />,
+        start: "09:30",
+        end: "12:00",
+      },
+      {
+        label: "12:45 PM - 03:15 PM",
+        icon: <FiSun />,
+        start: "12:45",
+        end: "15:15",
+      },
+      {
+        label: "04:00 PM - 06:30 PM",
+        icon: <FiSun />,
+        start: "16:00",
+        end: "18:30",
+      },
+      {
+        label: "07:15 PM - 09:45 PM",
+        icon: <HiOutlineMoon />,
+        start: "19:15",
+        end: "21:45",
+      },
+      {
+        label: "10:30 PM - 01:00 AM",
+        icon: <HiOutlineMoon />,
+        start: "22:30",
+        end: "01:00",
+      },
+    ],
+    "Family Theatre": [
+      {
+        label: "10:00 AM - 01:00 PM",
+        icon: <FiSun />,
+        start: "10:00",
+        end: "13:00",
+      },
+      {
+        label: "02:00 PM - 05:00 PM",
+        icon: <FiSun />,
+        start: "14:00",
+        end: "17:00",
+      },
+      {
+        label: "06:00 PM - 09:00 PM",
+        icon: <HiOutlineMoon />,
+        start: "18:00",
+        end: "21:00",
+      },
+      {
+        label: "10:00 PM - 01:00 AM",
+        icon: <HiOutlineMoon />,
+        start: "22:00",
+        end: "01:00",
+      },
+    ],
+  };
 
   useEffect(() => {
     const todayDate = new Date();
@@ -113,6 +174,11 @@ function TheatreDetails() {
     setSelectedTimes([]);
   };
 
+  const handleTheatreChange = (event) => {
+    setSelectedTheatre(event.target.value);
+    setSelectedTimes([]); // Reset selected times when the theatre type is changed
+  };
+
   return (
     <div className="flex flex-col justify-start gap-8 p-4 lg:flex-row md:p-8 lg:p-12">
       <div className="w-full lg:w-[30%]">
@@ -152,8 +218,38 @@ function TheatreDetails() {
               aspectRatio={1}
             />
           </div>
+
           <div className="flex flex-col gap-2 w-full md:w-[35%] lg:w-[23%]">
-            {timeSlots.map((slot, index) => (
+            <div className="flex justify-center gap-4 mb-4">
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  value="Couple Theatre"
+                  checked={selectedTheatre === "Couple Theatre"}
+                  onChange={handleTheatreChange}
+                />
+                <span className="ml-2">Couple</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  value="Friends Theatre"
+                  checked={selectedTheatre === "Friends Theatre"}
+                  onChange={handleTheatreChange}
+                />
+                <span className="ml-2">Friends</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                  type="radio"
+                  value="Family Theatre"
+                  checked={selectedTheatre === "Family Theatre"}
+                  onChange={handleTheatreChange}
+                />
+                <span className="ml-2">Family</span>
+              </label>
+            </div>
+            {timeSlots[selectedTheatre].map((slot, index) => (
               <button
                 key={index}
                 className={`flex-1 flex items-center justify-center p-3 border rounded-lg transition-colors duration-300 ${
